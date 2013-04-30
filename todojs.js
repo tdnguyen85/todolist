@@ -1,7 +1,10 @@
-
+function turnRed() {
+    $(this).css('color', 'red');
+    //this.style.color = 'green';   same code in JS
+}
 $(document).ready(function() {
     $('button').on('click', function() {
-       
+        event.preventDefault();
         var itemValue = $('#inputValue').val();
         var listItem = $('<li>' + itemValue + '<input type="checkbox"><button class="remove">Remove</button></li>');
         listItem.appendTo($('#list-one'));
@@ -9,8 +12,7 @@ $(document).ready(function() {
         $('input:checkbox').on('click', function() {
             var itemCompleted = $(this);
             if (itemCompleted.is(':checked')) {
-                itemCompleted.parent().appendTo('#list-two');
-                itemCompleted.parent().css('color', 'red');
+                itemCompleted.parent().appendTo('#list-two').css('color', 'white');
             } else {
                 itemCompleted.parent().css('color', 'black');
             }
